@@ -4,6 +4,6 @@ You need to feed your pet after a while. If you dont it will die because of star
 You can buy food for your pet in store.
 You can earn coin with playing games.
 
-* This project is an exercise in file handling topic *
+* This project is an exercise in file handling topic
 
 ! Dont change the .txt files. It may cause fatal problems !
