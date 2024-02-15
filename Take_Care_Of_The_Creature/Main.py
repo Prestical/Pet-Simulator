@@ -17,6 +17,9 @@ loginLog.write(currrentTime.strftime("%d/%m/%Y %H:%M !Program_Started\n"))
 
 ######### FUNCTIONS #########
 
+def clear_terminal():
+    os.system('cls' if os.name == 'nt' else 'clear')
+
 def switchGame(no1,no2,operator):
     resultCases = {
         "*": no1 * no2,
@@ -28,7 +31,7 @@ def switchGame(no1,no2,operator):
 
 # Math Game for earning coins
 def mathGame(character):
-    os.system("clear")
+    clear_terminal()
     randomNo1 = random.randint(1,100)
     randomNo2 = random.randint(1,100)
     operatorsList = ["*","-","+","/"]
@@ -44,12 +47,12 @@ def mathGame(character):
         
 # Store
 def store(character):
-    os.system("clear")
+    clear_terminal()
     while True:
-        os.system("clear")
+        clear_terminal()
         print(f"1)Bread / +10 Hunger \t\tCoin:{character.coin}\n2)Pasta / +25 Hunger\n0)Exit")
         choice = int(input("Enter: "))
-        os.system("clear")
+        clear_terminal()
         if character.coin > 0:
             if choice == 1:
                 choice2 = input("Bread Cost = 40 Coin. Buy? (y/n)")
@@ -126,9 +129,10 @@ if os.stat("CharacterStats.txt").st_size == 0:
 statsFile.seek(0)
 Info = takeInfo()
 creature = character(Info.get("Name"), Info.get("Hunger"), Info.get("Status"), Info.get("Coin"))
+updateStatus(creature)
 # Game Loop
 while True:
-    os.system("clear")
+    clear_terminal()
     print("Status :",creature.status," " * 4,"Hunger :",creature.hunger," " * 8,"Coin :",creature.coin)
     print(creature.checkImage())
     print("\n"," " * 20, creature.name)
